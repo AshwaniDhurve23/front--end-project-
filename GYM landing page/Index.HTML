@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYMOHOLIC - The Best Fitness Gym in Town</title>
+    <link rel="stylesheet" href="Style.CSS">
+    
+    <style>
+        /* CSS to hide and show sections dynamically */
+        section {
+            display: none;
+        }
+        
+        section.active {
+            display: block;
+        }
+        
+        .navbar a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            width: 200px;
+        }
+    </style>
+    <script>
+        // JavaScript to switch between different sections (Home, About, Services)
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section) => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function showSignup() {
+            showSection('signup');
+        }
+
+        window.onload = function () {
+            showSection('home'); 
+        }
+    </script>
+</head>
+
+<body class="overflow-x-hidden">
+    <div class="container mx-auto">
+        <header>
+            <nav class="flex justify-between">
+                <div class="logo font-bold flex items-center text-blue">GYMOHOLIC</div>
+                <ul class="navbar flex items-center">
+                    <li><a href="javascript:void(0)" onclick="showSection('home')">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSection('about')">About</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSection('services')">Services</a></li>
+                    <li><a href="javascript:void(0)" onclick="showSection('contact')">Contact Us</a></li>
+                    <li><button class="btn"><a href="javascript:void(0)" onclick="showSection('join')">Join Now</a></button></li>
+                </ul>
+            </nav>
+            <hr>
+        </header>
+
+        <main class="min-h-screen">
+            <!-- Home Section -->
+            <section id="home" class="active">
+                <div class="section1">
+                    <div class="flex">
+                        <div class="topleft flex flex-col justify-center px-2">
+                            <div class="text-center">
+                                <img class="workout" src="gym 1.png" alt="">
+                            </div>
+                            <h1 class="my-1 text-center">The best fitness Gym in town is here</h1>
+                            <p class="text-center">Welcome to GYMOHOLIC, the best gym in the city! We are dedicated to helping you achieve your fitness goals and improve your overall well-being.</p>
+                            <!-- Countdown timer -->
+                            <p class="deal text-center">The deal ends in <span id="demo"></span></p>
+                            <div class="buttons">
+                                <button class="btn"><a href="javascript:void(0)" onclick="showSection('join')">Join now</a></button>
+                                <button class="btn"><a href="javascript:void(0)" onclick="showSection('contact')">Contact Us</a></button>
+                            </div>
+                        </div>
+                        <div class="topright flex justify-center">
+                            <img class="gymimg" src="gym 2.png"alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about">
+                <h1 class="text-center my-2">About GYMOHOLIC</h1>
+                <p class="text-center my-2">GYMOHOLIC is a top-rated fitness gym that offers personalized workout routines, fitness classes, and state-of-the-art equipment to help you achieve your health and wellness goals.</p>
+                <p class="text-center my-2">Our team of expert trainers is committed to providing you with the best fitness experience possible, in a welcoming and motivating environment.</p>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services">
+                <h1 class="text-center my-2">Our Services</h1>
+                <p class="text-center my-2">At GYMOHOLIC, we provide a wide range of services to meet your fitness needs. From personal training to group fitness classes, our gym is equipped with top-notch services to help you reach your goals.</p>
+                <ul class="text-center">
+                    <li>Personal Training</li>
+                    <li>Group Fitness Classes</li>
+                    <li>Yoga and Meditation</li>
+                    <li>Strength Training</li>
+                    <li>Cardio Equipment</li>
+                    <li>Sauna and Recovery Rooms</li>
+                </ul>
+            </section>
+
+            <!-- Contact Us Section -->
+            <section id="contact">
+                <h1 class="text-center my-2">Contact Us</h1>
+                <p class="text-center my-2">For inquiries, please reach out to us at:</p>
+                <p class="text-center my-2"><strong>Email:</strong> support@gymoholic.com</p>
+                <p class="text-center my-2"><strong>Phone:</strong> +123-456-7890</p>
+                <p class="text-center my-2"><strong>Location:</strong> 123 Fitness Avenue, Health City</p>
+            </section>
+
+            <!-- Join Section -->
+            <section id="join">
+                <h1 class="text-center my-2">Join GYMOHOLIC</h1>
+                <p class="text-center my-2">Choose your membership plan:</p>
+                <div class="boxes flex justify-center">
+                    <div class="box">
+                        <h2>Free</h2>
+                        <ul>
+                            <li class="highlighted">₹0/month</li>
+                            <li>Access to basic facilities</li>
+                            <li>Email support</li>
+                            <li><button class="btn" onclick="showSignup()">Signup Now</button></li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h2>Pro</h2>
+                        <ul>
+                            <li class="highlighted">₹150/month</li>
+                            <li>Access to all facilities</li>
+                            <li>Email support</li>
+                            <li><button class="btn" onclick="showSignup()">Signup Now</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Signup Section -->
+            <section id="signup">
+                <h1 class="text-center my-2">Sign Up</h1>
+                <form class="text-center">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required><br>
+                    <button type="submit" class="btn">Submit</button>
+                    <button type="button" class="btn" onclick="showSection('join')">Cancel</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            Copyright &copy; GYMOHOLIC.com | All rights reserved
+        </footer>
+    </div>
+
+    <script src="Script.JS"></script> 
+</body>
+</html>
